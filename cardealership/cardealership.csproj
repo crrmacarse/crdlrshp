@@ -65,6 +65,7 @@
     <Compile Include="Class\clsCar.cs" />
     <Compile Include="Class\clsConnection.cs" />
     <Compile Include="Class\clsGeneral.cs" />
+    <Compile Include="Class\clsMenu.cs" />
     <Compile Include="Class\clsRegistryKey.cs" />
     <Compile Include="Common\Forms\frmBasis.cs">
       <SubType>Form</SubType>
@@ -114,6 +115,18 @@
     <Compile Include="Common\Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Inventory\Dialog\frmNewInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Inventory\Dialog\frmNewInventory.Designer.cs">
+      <DependentUpon>frmNewInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Inventory\ucInventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Inventory\ucInventory.Designer.cs">
+      <DependentUpon>ucInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Common\Forms\frmBasis.resx">
@@ -140,6 +153,12 @@
     <EmbeddedResource Include="Common\Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Inventory\Dialog\frmNewInventory.resx">
+      <DependentUpon>frmNewInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Inventory\ucInventory.resx">
+      <DependentUpon>ucInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -165,8 +184,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules\Home\" />
-    <Folder Include="Modules\Inventory\Dialog\" />
-    <Folder Include="Modules\Inventory\User Control\" />
     <Folder Include="Modules\Sales\Dialog\" />
     <Folder Include="Modules\Sales\User Control\" />
     <Folder Include="Modules\Settings\Dialog\" />

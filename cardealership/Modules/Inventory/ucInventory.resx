@@ -117,26 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pbIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAAsxJREFUaEPtmDGvEkEQx/kEfgRjY6m9JiSG2g9A6QegsDd+ADtaE0wevQWhssHY
-        kvhetDGxIGijBQ0JCWrUt85cPJi9zC0ze7e3i27xK2COm/m9P7vsvd5+vzdnwANjTK8NsnCihBHebDZm
-        uVxGZ71eU1kkjDA2GwwG0ZlMJlQWycK+ZGHaeDweF++FZjabWX2jCeNrWg8Fbpa0bxbOwv6ohBeLRbGu
-        24DeN1lhHJTWm0Dvm4WzcN60vMnCtPF/L7zdbovhJOx2O+dnaQ1f075nuWmd+iytZeEsHEl4tVoV70mo
-        rtPqZ2ktWeFQZOEsHEm4yeMh/g7Te1EEwu+ANwy3OCkXKmEcnNY1oBS9F0UgXMcFJ+Xi3IURVcr/grAq
-        5SQ3rfl8btV/f+gb8xbmBa6vbphvu69WHRCnnJzwcDi0at83rw6yJT8/P7GuAcQpJyfsSrekScoq4SaP
-        hy7weuwnSbfEN+Vgm5bm21EKS9It8U05GWFNuiU+KScjrEm3xCdllXCTx0MX1WNnNd0Xz+6Zp4/7B2hN
-        m7JKuCuq6fbv34FJewdoTZtycsLc2nUJI5qUkxPm1u4pYU3KTuHRaFRsVKGYTqd0wNqd+ZQwIk3ZKRwa
-        6c4sEZamHE1Y87srEUYkKUcT1vzuSoUlKVvCsZCcqqT8+PK8en8r5SSEJacqKdfvb3I9DilHF24z3RJX
-        yijM/TcwJNYwknQvX942ry/uHuCuobhShiuO3+/QQNNHdAhputJNi1KXMlT54UIATT/RIaRr10e4LmWo
-        8sO1DTTzShfxEUa4lKHCD9g20Mxav78+PmSH5HA9HrrAbxDtiUClG6CZlTD+9bkh2yRqwgg0tNYwrjNu
-        0DbAUxft9Zfu1jACDb3XsZa6czVU+eFCAY2tlFE6BHVnanaokEBjK+WOOJ606DBdAQNYKXfA8SxNB+kK
-        GKDLlMnTkun9Ac122yIq8fkLAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="lblDescription.Text" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum nisl eu convallis dictum. Aliquam in erat sed lacus pretium semper et eget tellus. Nam ipsum urna, cursus ut mollis ac, faucibus sed orci. In posuere pharetra nibh. Nam erat enim, dignissim aliquam risus vel, gravida euismod est.</value>
-  </data>
+  <metadata name="msControl.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="tsInventoryData.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>105, 17</value>
+  </metadata>
 </root>

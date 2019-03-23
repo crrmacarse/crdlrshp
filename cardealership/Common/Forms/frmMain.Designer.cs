@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsMain = new System.Windows.Forms.ToolStrip();
             this.tsddbAccountUser = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmiAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPreferences = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,38 +41,40 @@
             this.tssDivider = new System.Windows.Forms.ToolStripSeparator();
             this.tsslApplicationState = new System.Windows.Forms.ToolStripLabel();
             this.scMain = new System.Windows.Forms.SplitContainer();
+            this.pnlMenu = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pnlTitle = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tpPage = new System.Windows.Forms.TabControl();
+            this.tpHome = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.ucMenuItem1 = new cardealership.Common.UserControls.ucMenuItem();
-            this.toolStrip1.SuspendLayout();
+            this.button2 = new System.Windows.Forms.Button();
+            this.tpInventory = new System.Windows.Forms.TabPage();
+            this.tsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
             this.scMain.Panel1.SuspendLayout();
             this.scMain.Panel2.SuspendLayout();
             this.scMain.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.pnlTitle.SuspendLayout();
+            this.tpPage.SuspendLayout();
+            this.tpHome.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // tsMain
             // 
-            this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(84)))), ((int)(((byte)(32)))));
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(84)))), ((int)(((byte)(32)))));
+            this.tsMain.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tsMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsddbAccountUser,
             this.tssDivider,
             this.tsslApplicationState});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 638);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1194, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsMain.Location = new System.Drawing.Point(0, 638);
+            this.tsMain.Name = "tsMain";
+            this.tsMain.Size = new System.Drawing.Size(1194, 25);
+            this.tsMain.TabIndex = 1;
+            this.tsMain.Text = "toolStrip1";
             // 
             // tsddbAccountUser
             // 
@@ -180,89 +182,98 @@
             // scMain.Panel1
             // 
             this.scMain.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
-            this.scMain.Panel1.Controls.Add(this.ucMenuItem1);
+            this.scMain.Panel1.Controls.Add(this.pnlMenu);
             this.scMain.Panel1.Controls.Add(this.panel2);
+            this.scMain.Panel1.Controls.Add(this.pnlTitle);
             // 
             // scMain.Panel2
             // 
             this.scMain.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.scMain.Panel2.Controls.Add(this.tabControl1);
+            this.scMain.Panel2.Controls.Add(this.tpPage);
             this.scMain.Size = new System.Drawing.Size(1194, 638);
             this.scMain.SplitterDistance = 174;
             this.scMain.TabIndex = 2;
             this.scMain.Visible = false;
             // 
+            // pnlMenu
+            // 
+            this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMenu.Location = new System.Drawing.Point(0, 88);
+            this.pnlMenu.Name = "pnlMenu";
+            this.pnlMenu.Size = new System.Drawing.Size(174, 550);
+            this.pnlMenu.TabIndex = 43;
+            // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(84)))), ((int)(((byte)(32)))));
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Location = new System.Drawing.Point(0, 87);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(174, 87);
+            this.panel2.Size = new System.Drawing.Size(174, 1);
             this.panel2.TabIndex = 38;
             // 
-            // label1
+            // pnlTitle
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
-            this.label1.Location = new System.Drawing.Point(11, 35);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 23);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Car Dealership Project v1.1.0";
+            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(84)))), ((int)(((byte)(32)))));
+            this.pnlTitle.Controls.Add(this.label3);
+            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTitle.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitle.Name = "pnlTitle";
+            this.pnlTitle.Size = new System.Drawing.Size(174, 87);
+            this.pnlTitle.TabIndex = 41;
             // 
-            // tabControl1
+            // label3
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1016, 638);
-            this.tabControl1.TabIndex = 2;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
+            this.label3.Location = new System.Drawing.Point(11, 35);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 23);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Car Dealership Project v1.1.0";
             // 
-            // tabPage1
+            // tpPage
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 30);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1008, 604);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Home";
+            this.tpPage.Controls.Add(this.tpHome);
+            this.tpPage.Controls.Add(this.tpInventory);
+            this.tpPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tpPage.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tpPage.Location = new System.Drawing.Point(0, 0);
+            this.tpPage.Name = "tpPage";
+            this.tpPage.SelectedIndex = 0;
+            this.tpPage.Size = new System.Drawing.Size(1016, 638);
+            this.tpPage.TabIndex = 2;
             // 
-            // button2
+            // tpHome
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(84)))), ((int)(((byte)(32)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
-            this.button2.Location = new System.Drawing.Point(736, 554);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(232, 44);
-            this.button2.TabIndex = 38;
-            this.button2.Text = "Test Messagebox";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.tpHome.BackColor = System.Drawing.Color.White;
+            this.tpHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tpHome.Controls.Add(this.button1);
+            this.tpHome.Controls.Add(this.label2);
+            this.tpHome.Controls.Add(this.button2);
+            this.tpHome.Location = new System.Drawing.Point(4, 30);
+            this.tpHome.Name = "tpHome";
+            this.tpHome.Padding = new System.Windows.Forms.Padding(3);
+            this.tpHome.Size = new System.Drawing.Size(1008, 604);
+            this.tpHome.TabIndex = 0;
+            this.tpHome.Text = "Home";
             // 
-            // tabPage2
+            // button1
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 30);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1008, 604);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Inventory";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
+            this.button1.Location = new System.Drawing.Point(887, 520);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 31);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "FOR TEST ONLY";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label2
             // 
@@ -276,14 +287,31 @@
             this.label2.TabIndex = 39;
             this.label2.Text = "Car Dealership";
             // 
-            // ucMenuItem1
+            // button2
             // 
-            this.ucMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ucMenuItem1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucMenuItem1.Location = new System.Drawing.Point(0, 87);
-            this.ucMenuItem1.Name = "ucMenuItem1";
-            this.ucMenuItem1.Size = new System.Drawing.Size(174, 49);
-            this.ucMenuItem1.TabIndex = 36;
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(84)))), ((int)(((byte)(32)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
+            this.button2.Location = new System.Drawing.Point(768, 557);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(232, 44);
+            this.button2.TabIndex = 38;
+            this.button2.Text = "Test Messagebox";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // tpInventory
+            // 
+            this.tpInventory.Location = new System.Drawing.Point(4, 30);
+            this.tpInventory.Name = "tpInventory";
+            this.tpInventory.Padding = new System.Windows.Forms.Padding(3);
+            this.tpInventory.Size = new System.Drawing.Size(1008, 604);
+            this.tpInventory.TabIndex = 1;
+            this.tpInventory.Text = "Inventory";
+            this.tpInventory.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -292,7 +320,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1194, 663);
             this.Controls.Add(this.scMain);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tsMain);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMain";
@@ -300,32 +328,29 @@
             this.Text = "frmMain";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Shown += new System.EventHandler(this.FrmMain_Shown);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tsMain.ResumeLayout(false);
+            this.tsMain.PerformLayout();
             this.scMain.Panel1.ResumeLayout(false);
             this.scMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).EndInit();
             this.scMain.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.pnlTitle.ResumeLayout(false);
+            this.tpPage.ResumeLayout(false);
+            this.tpHome.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tsMain;
         private System.Windows.Forms.ToolStripSeparator tssDivider;
         private System.Windows.Forms.ToolStripLabel tsslApplicationState;
         private System.Windows.Forms.SplitContainer scMain;
-        private UserControls.ucMenuItem ucMenuItem1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tpPage;
+        private System.Windows.Forms.TabPage tpHome;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpInventory;
         private System.Windows.Forms.ToolStripDropDownButton tsddbAccountUser;
         private System.Windows.Forms.ToolStripMenuItem tsmiRestart;
         private System.Windows.Forms.ToolStripMenuItem tsmiSettings;
@@ -335,5 +360,10 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiExit;
         private System.Windows.Forms.ToolStripMenuItem tsmiSignout;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel pnlTitle;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel pnlMenu;
     }
 }

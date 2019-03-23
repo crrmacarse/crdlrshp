@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace cardealership.Class
 {
+
+
     public static class clsGeneral
     {
+       
+
+
         // read registry code
+
+
 
 
     }

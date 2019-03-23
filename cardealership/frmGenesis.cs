@@ -20,7 +20,7 @@ namespace cardealership
             Application.Exit();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void btnLaunch_Click(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -50,6 +50,7 @@ namespace cardealership
 
         private void FrmGenesis_Load(object sender, EventArgs e)
         {
+            
                 // read registry here
 
         }
