@@ -37,8 +37,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.ucTextbox2 = new cardealership.Common.UserControls.ucTextbox();
-            this.ucTextbox1 = new cardealership.Common.UserControls.ucTextbox();
+            this.txtUsername = new cardealership.Common.UserControls.ucTextbox();
+            this.txtPassword = new cardealership.Common.UserControls.ucTextbox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,21 +147,25 @@
             this.panel4.Size = new System.Drawing.Size(419, 1);
             this.panel4.TabIndex = 60;
             // 
-            // ucTextbox2
+            // txtUsername
             // 
-            this.ucTextbox2.BackColor = System.Drawing.Color.White;
-            this.ucTextbox2.Location = new System.Drawing.Point(31, 164);
-            this.ucTextbox2.Name = "ucTextbox2";
-            this.ucTextbox2.Size = new System.Drawing.Size(358, 37);
-            this.ucTextbox2.TabIndex = 57;
+            this.txtUsername.BackColor = System.Drawing.Color.White;
+            this.txtUsername.Location = new System.Drawing.Point(31, 97);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(358, 37);
+            this.txtUsername.TabIndex = 63;
+            this.txtUsername.UseSystemPasswordChar = false;
+            this.txtUsername.Value = null;
             // 
-            // ucTextbox1
+            // txtPassword
             // 
-            this.ucTextbox1.BackColor = System.Drawing.Color.White;
-            this.ucTextbox1.Location = new System.Drawing.Point(31, 97);
-            this.ucTextbox1.Name = "ucTextbox1";
-            this.ucTextbox1.Size = new System.Drawing.Size(358, 37);
-            this.ucTextbox1.TabIndex = 56;
+            this.txtPassword.BackColor = System.Drawing.Color.White;
+            this.txtPassword.Location = new System.Drawing.Point(31, 164);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(358, 37);
+            this.txtPassword.TabIndex = 64;
+            this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Value = null;
             // 
             // frmSignin
             // 
@@ -169,11 +173,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(421, 283);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.ucTextbox2);
-            this.Controls.Add(this.ucTextbox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
@@ -196,10 +200,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private UserControls.ucTextbox ucTextbox1;
-        private UserControls.ucTextbox ucTextbox2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
+        private UserControls.ucTextbox txtUsername;
+        private UserControls.ucTextbox txtPassword;
     }
 }

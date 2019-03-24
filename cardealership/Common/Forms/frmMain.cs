@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-using cardealership.Common.UserControls;
 using cardealership.Class;
+using cardealership.Common.UserControls;
+using cardealership.Modules.Inventory;
+using cardealership.Modules.Sales;
+using cardealership.Modules.Settings;
 
 namespace cardealership.Common.Forms
 {
@@ -28,6 +31,7 @@ namespace cardealership.Common.Forms
             SigningIn
         }
 
+
         public frmMain()
         {
             InitializeComponent();
@@ -45,7 +49,7 @@ namespace cardealership.Common.Forms
 
             if (!this.connected)
             {
-                
+                clsAccountUser auth = new clsAccountUser();
                 frmSignin frm = new frmSignin();
                 frm.StartPosition = FormStartPosition.CenterParent;
 
@@ -82,12 +86,16 @@ namespace cardealership.Common.Forms
                 {
                     case "Inventory":
                         menuClass.Title = menu.ToString();
+                        menuClass.Icon = ilMain.Images[ilMain.Images.IndexOfKey("inventory")];
                         break;
                     case "Sales":
                         menuClass.Title = menu.ToString();
+                        menuClass.Icon = ilMain.Images[ilMain.Images.IndexOfKey("sales")];
+                        
                         break;
                     case "Settings":
                         menuClass.Title = menu.ToString();
+                        menuClass.Icon = ilMain.Images[ilMain.Images.IndexOfKey("settings")];
                         break;
                     default:
                         break;
@@ -111,7 +119,11 @@ namespace cardealership.Common.Forms
                 ucMenuItem menuItem = new ucMenuItem();
                 menuItem.Caption = menu.Title;
                 menuItem.Dock = DockStyle.Top;
+                menuItem.Icon = menu.Icon;
+                menuItem.StatusUpdated += new EventHandler(MyEventHandlerFunction_StatusUpdated);
+
                 menuItem.BringToFront();
+                //menuItem.customHandler = this.addTabPage;
                 //menuItem.HandleAddTabPage += this.addTabPage;
 
                 this.pnlMenu.Controls.Add(menuItem);
@@ -119,6 +131,11 @@ namespace cardealership.Common.Forms
             
             scMain.Panel2.ResumeLayout();
         
+        }
+
+        public void MyEventHandlerFunction_StatusUpdated(object sender, EventArgs e)
+        {
+            addTabPage(sender.ToString());
         }
 
         public void addTabPage(string page) {
@@ -133,10 +150,13 @@ namespace cardealership.Common.Forms
             switch (page)
             {
                 case "Inventory":
+                    uc = new ucInventory();
                     break;
                 case "Sales":
+                    uc = new ucSales();
                     break;
                 case "Settings":
+                    uc = new ucSettings();
                     break;
             }
 
@@ -144,8 +164,12 @@ namespace cardealership.Common.Forms
 
             this.setApplicationState(ApplicationState.Busy);
             scMain.Panel2.SuspendLayout();
-
-
+            TabPage tp = new TabPage(page);
+            tp.Name = page;
+            uc.Dock = DockStyle.Fill;
+            tp.Controls.Add(uc);
+            tpPage.TabPages.Add(tp);
+            tpPage.SelectedTab = tp;
             scMain.Panel2.ResumeLayout();
             this.setApplicationState(ApplicationState.Ready);
 
@@ -210,8 +234,31 @@ namespace cardealership.Common.Forms
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            setApplicationState(ApplicationState.Busy);
+            this.showMessageBox("Connectiin Error", "Please restart or wait for further instructions", clsMsgTypes.warning);
         }
+
+        /// <summary>
+        ///  System Messagebox
+        /// </summary>
+        /// <param name="title">Main title</param>
+        /// <param name="description">Messge Description</param>
+        /// <param name="types">Message Types</param>
+        /// <param name="subtitle">Optional Subtitle. Useful for additional details</param>
+        /// <returns></returns>
+
+        public void showMessageBox(string title, string description, string types = clsMsgTypes.info, string subtitle = "")
+        {
+            frmMessageBox frm = new frmMessageBox();
+
+            frm.Title = title;
+            frm.SubTitle = subtitle;
+            frm.MsgType = types;
+            frm.Description = description;
+
+            // could add a dialog result here that handles questions
+            frm.ShowDialog();
+        }
+
 
         private void Button2_Click(object sender, EventArgs e)
         {

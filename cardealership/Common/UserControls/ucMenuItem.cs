@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 
+using cardealership.Common.Forms;
+
 namespace cardealership.Common.UserControls
 {
     public partial class ucMenuItem : UserControl
@@ -9,7 +11,19 @@ namespace cardealership.Common.UserControls
         private string caption;
         private Image icon;
 
+        public event EventHandler StatusUpdated;
+
+        protected void UC_Click(object sender, System.EventArgs e)
+        {
+            if (this.StatusUpdated != null)
+                this.StatusUpdated(this.caption, new EventArgs());
+
+            //addPage(this.caption);
+            // call parent addtabPage()
+        }
+
         //public event EventHandler HandleAddTabPage;
+
 
         public ucMenuItem()
         {
@@ -27,12 +41,7 @@ namespace cardealership.Common.UserControls
             pbIcon.Image = this.icon;
         }
 
-        private void UC_Click(object sender, System.EventArgs e)
-        {
-
-            // call parent addtabPage()
-            MessageBox.Show("Hello world");
-        }
+      
 
 
 

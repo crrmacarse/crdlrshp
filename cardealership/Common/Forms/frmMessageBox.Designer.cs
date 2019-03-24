@@ -57,6 +57,7 @@
             this.btnYes.TabIndex = 40;
             this.btnYes.Text = "Yes";
             this.btnYes.UseVisualStyleBackColor = false;
+            this.btnYes.Visible = false;
             this.btnYes.Click += new System.EventHandler(this.BtnYes_Click);
             // 
             // lblTitle
@@ -107,6 +108,7 @@
             this.btnNo.TabIndex = 45;
             this.btnNo.Text = "No";
             this.btnNo.UseVisualStyleBackColor = false;
+            this.btnNo.Visible = false;
             this.btnNo.Click += new System.EventHandler(this.BtnNo_Click);
             // 
             // panel1

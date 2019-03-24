@@ -38,12 +38,12 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ucTextbox1 = new cardealership.Common.UserControls.ucTextbox();
-            this.ucTextbox2 = new cardealership.Common.UserControls.ucTextbox();
+            this.txtSQLServer = new cardealership.Common.UserControls.ucTextbox();
+            this.txtUserName = new cardealership.Common.UserControls.ucTextbox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.ucTextbox4 = new cardealership.Common.UserControls.ucTextbox();
-            this.ucTextbox3 = new cardealership.Common.UserControls.ucTextbox();
+            this.txtPassword = new cardealership.Common.UserControls.ucTextbox();
+            this.txtDatabase = new cardealership.Common.UserControls.ucTextbox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -168,21 +168,21 @@
             this.label2.Text = "Username";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ucTextbox1
+            // txtSQLServer
             // 
-            this.ucTextbox1.BackColor = System.Drawing.Color.White;
-            this.ucTextbox1.Location = new System.Drawing.Point(29, 119);
-            this.ucTextbox1.Name = "ucTextbox1";
-            this.ucTextbox1.Size = new System.Drawing.Size(330, 37);
-            this.ucTextbox1.TabIndex = 65;
+            this.txtSQLServer.BackColor = System.Drawing.Color.White;
+            this.txtSQLServer.Location = new System.Drawing.Point(29, 119);
+            this.txtSQLServer.Name = "txtSQLServer";
+            this.txtSQLServer.Size = new System.Drawing.Size(330, 37);
+            this.txtSQLServer.TabIndex = 65;
             // 
-            // ucTextbox2
+            // txtUserName
             // 
-            this.ucTextbox2.BackColor = System.Drawing.Color.White;
-            this.ucTextbox2.Location = new System.Drawing.Point(29, 192);
-            this.ucTextbox2.Name = "ucTextbox2";
-            this.ucTextbox2.Size = new System.Drawing.Size(330, 37);
-            this.ucTextbox2.TabIndex = 66;
+            this.txtUserName.BackColor = System.Drawing.Color.White;
+            this.txtUserName.Location = new System.Drawing.Point(29, 192);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(330, 37);
+            this.txtUserName.TabIndex = 66;
             // 
             // label4
             // 
@@ -208,21 +208,21 @@
             this.label3.Text = "Database";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ucTextbox4
+            // txtPassword
             // 
-            this.ucTextbox4.BackColor = System.Drawing.Color.White;
-            this.ucTextbox4.Location = new System.Drawing.Point(29, 265);
-            this.ucTextbox4.Name = "ucTextbox4";
-            this.ucTextbox4.Size = new System.Drawing.Size(330, 37);
-            this.ucTextbox4.TabIndex = 72;
+            this.txtPassword.BackColor = System.Drawing.Color.White;
+            this.txtPassword.Location = new System.Drawing.Point(29, 265);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(330, 37);
+            this.txtPassword.TabIndex = 72;
             // 
-            // ucTextbox3
+            // txtDatabase
             // 
-            this.ucTextbox3.BackColor = System.Drawing.Color.White;
-            this.ucTextbox3.Location = new System.Drawing.Point(29, 338);
-            this.ucTextbox3.Name = "ucTextbox3";
-            this.ucTextbox3.Size = new System.Drawing.Size(330, 37);
-            this.ucTextbox3.TabIndex = 73;
+            this.txtDatabase.BackColor = System.Drawing.Color.White;
+            this.txtDatabase.Location = new System.Drawing.Point(29, 338);
+            this.txtDatabase.Name = "txtDatabase";
+            this.txtDatabase.Size = new System.Drawing.Size(330, 37);
+            this.txtDatabase.TabIndex = 73;
             // 
             // label5
             // 
@@ -243,16 +243,16 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(390, 467);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.ucTextbox3);
-            this.Controls.Add(this.ucTextbox4);
+            this.Controls.Add(this.txtDatabase);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.ucTextbox2);
-            this.Controls.Add(this.ucTextbox1);
+            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.txtSQLServer);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -275,12 +275,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private UserControls.ucTextbox ucTextbox1;
-        private UserControls.ucTextbox ucTextbox2;
+        private UserControls.ucTextbox txtSQLServer;
+        private UserControls.ucTextbox txtUserName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private UserControls.ucTextbox ucTextbox4;
-        private UserControls.ucTextbox ucTextbox3;
+        private UserControls.ucTextbox txtPassword;
+        private UserControls.ucTextbox txtDatabase;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label5;
     }

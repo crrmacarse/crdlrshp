@@ -1,39 +1,63 @@
-﻿namespace cardealership.Class
+﻿using System;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+
+namespace cardealership.Class
 {
     class clsConnection
     {
-        private string servername;
-        private int port;
-        private string username;
-        private string password;
-        private string database;
+        private string server = "localhost";
+        private string username = "sa";
+        private string password = "garudatiger";
+        private string database = "CarDealership";
 
-        public string ServerName { get { return this.servername; } set { this.servername = value; } }
-        public int Port { get { return this.port; } set { this.port = value; } }
-        public string Username { get { return this.username;  } set { this.username = value; } }
-        public string Password { get { return this.password; } set { this.password = value;  } }
+        public string Server { get { return this.server; } set { this.server = value; } }
+        public string Username { get { return this.username; } set { this.username = value; } }
+        public string Password { get { return this.password; } set { this.password = value; } }
         public string Database { get { return this.database; } set { this.database = value; } }
 
-        public string Sever { get { return this.servername + "," + this.port; }}
-        public string Connection { get { return this.servername + "," + this.port + ";" + this.database + "," + this.username + "," + this.password; } }
+        public string Connection { get { return "server=" + this.server + ";uid=" + this.username + ";pwd=" + this.password + ";initial catalog=" + this.database; } }
 
-        public clsConnection(string servername, int port, string username, string password, string database)
+        public clsConnection(string server, string username, string password, string database)
         {
-            this.servername = servername;
-            this.port = port;
+            this.server = server;
             this.username = username;
             this.password = password;
             this.database = database;
         }
 
-        public void TestConnection()
+        public clsConnection()
         {
-            // test connection
+
         }
 
-        public void ChangeDB()
+        public string createConnectionString()
         {
-            // can change db
+            return "server=" + this.server + ";uid=" + this.username + ";pwd=" + this.password + ";initial catalog=" + this.database;
+            //return "server=" + this.servername + "," + this.port + ";uid=" + this.username + ";pwd=" + this.password + ";initial catalog=" + this.database;            
+        }
+
+        public string getConnectionString(string database = null)
+        {
+            if (database != null) { this.database = database; }
+
+            return this.createConnectionString();
+        }
+
+        public bool TestConnection()
+        {
+            using(SqlConnection connection = new SqlConnection(this.getConnectionString())){
+                try
+                {
+                    connection.Open();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return false;
+                }
+            }
         }
 
 

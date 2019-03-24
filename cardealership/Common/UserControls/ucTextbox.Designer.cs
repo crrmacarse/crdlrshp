@@ -28,31 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtValue = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtValue
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Gray;
-            this.textBox1.Location = new System.Drawing.Point(9, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox1.Size = new System.Drawing.Size(283, 20);
-            this.textBox1.TabIndex = 53;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValue.BackColor = System.Drawing.Color.White;
+            this.txtValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtValue.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValue.ForeColor = System.Drawing.Color.Gray;
+            this.txtValue.Location = new System.Drawing.Point(9, 7);
+            this.txtValue.Name = "txtValue";
+            this.txtValue.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtValue.Size = new System.Drawing.Size(283, 20);
+            this.txtValue.TabIndex = 53;
+            this.txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValue.TextChanged += new System.EventHandler(this.TxtValue_TextChanged);
             // 
             // ucTextbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtValue);
             this.Name = "ucTextbox";
             this.Size = new System.Drawing.Size(292, 33);
+            this.Load += new System.EventHandler(this.UcTextbox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -60,6 +61,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtValue;
     }
 }

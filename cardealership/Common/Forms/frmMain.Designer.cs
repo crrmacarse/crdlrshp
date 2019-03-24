@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tsMain = new System.Windows.Forms.ToolStrip();
             this.tsddbAccountUser = new System.Windows.Forms.ToolStripDropDownButton();
@@ -40,25 +41,19 @@
             this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tssDivider = new System.Windows.Forms.ToolStripSeparator();
             this.tsslApplicationState = new System.Windows.Forms.ToolStripLabel();
+            this.ilMain = new System.Windows.Forms.ImageList(this.components);
             this.scMain = new System.Windows.Forms.SplitContainer();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.tpPage = new System.Windows.Forms.TabControl();
-            this.tpHome = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.tpInventory = new System.Windows.Forms.TabPage();
             this.tsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
             this.scMain.Panel1.SuspendLayout();
             this.scMain.Panel2.SuspendLayout();
             this.scMain.SuspendLayout();
             this.pnlTitle.SuspendLayout();
-            this.tpPage.SuspendLayout();
-            this.tpHome.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsMain
@@ -170,6 +165,14 @@
             this.tsslApplicationState.Size = new System.Drawing.Size(75, 19);
             this.tsslApplicationState.Text = "Sign-in first..";
             // 
+            // ilMain
+            // 
+            this.ilMain.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ilMain.ImageStream")));
+            this.ilMain.TransparentColor = System.Drawing.Color.Transparent;
+            this.ilMain.Images.SetKeyName(0, "inventory");
+            this.ilMain.Images.SetKeyName(1, "sales");
+            this.ilMain.Images.SetKeyName(2, "settings");
+            // 
             // scMain
             // 
             this.scMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -235,8 +238,6 @@
             // 
             // tpPage
             // 
-            this.tpPage.Controls.Add(this.tpHome);
-            this.tpPage.Controls.Add(this.tpInventory);
             this.tpPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tpPage.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpPage.Location = new System.Drawing.Point(0, 0);
@@ -244,74 +245,6 @@
             this.tpPage.SelectedIndex = 0;
             this.tpPage.Size = new System.Drawing.Size(1016, 638);
             this.tpPage.TabIndex = 2;
-            // 
-            // tpHome
-            // 
-            this.tpHome.BackColor = System.Drawing.Color.White;
-            this.tpHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tpHome.Controls.Add(this.button1);
-            this.tpHome.Controls.Add(this.label2);
-            this.tpHome.Controls.Add(this.button2);
-            this.tpHome.Location = new System.Drawing.Point(4, 30);
-            this.tpHome.Name = "tpHome";
-            this.tpHome.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHome.Size = new System.Drawing.Size(1008, 604);
-            this.tpHome.TabIndex = 0;
-            this.tpHome.Text = "Home";
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
-            this.button1.Location = new System.Drawing.Point(887, 520);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 31);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "FOR TEST ONLY";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Sitka Text", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label2.Location = new System.Drawing.Point(619, 23);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(387, 83);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Car Dealership";
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(84)))), ((int)(((byte)(32)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
-            this.button2.Location = new System.Drawing.Point(768, 557);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(232, 44);
-            this.button2.TabIndex = 38;
-            this.button2.Text = "Test Messagebox";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
-            // 
-            // tpInventory
-            // 
-            this.tpInventory.Location = new System.Drawing.Point(4, 30);
-            this.tpInventory.Name = "tpInventory";
-            this.tpInventory.Padding = new System.Windows.Forms.Padding(3);
-            this.tpInventory.Size = new System.Drawing.Size(1008, 604);
-            this.tpInventory.TabIndex = 1;
-            this.tpInventory.Text = "Inventory";
-            this.tpInventory.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -335,8 +268,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).EndInit();
             this.scMain.ResumeLayout(false);
             this.pnlTitle.ResumeLayout(false);
-            this.tpPage.ResumeLayout(false);
-            this.tpHome.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,9 +279,6 @@
         private System.Windows.Forms.ToolStripLabel tsslApplicationState;
         private System.Windows.Forms.SplitContainer scMain;
         private System.Windows.Forms.TabControl tpPage;
-        private System.Windows.Forms.TabPage tpHome;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TabPage tpInventory;
         private System.Windows.Forms.ToolStripDropDownButton tsddbAccountUser;
         private System.Windows.Forms.ToolStripMenuItem tsmiRestart;
         private System.Windows.Forms.ToolStripMenuItem tsmiSettings;
@@ -359,11 +287,10 @@
         private System.Windows.Forms.ToolStripSeparator tssSeparator;
         private System.Windows.Forms.ToolStripMenuItem tsmiExit;
         private System.Windows.Forms.ToolStripMenuItem tsmiSignout;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel pnlMenu;
+        private System.Windows.Forms.ImageList ilMain;
     }
 }

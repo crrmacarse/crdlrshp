@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using cardealership.Class;
 
 namespace cardealership.Common
 {
@@ -21,11 +16,33 @@ namespace cardealership.Common
 
         private void BtnSignin_Click(object sender, EventArgs e)
         {
-            // sign in method here
-            verified = true;
+            if (String.IsNullOrEmpty(txtUsername.Value) || String.IsNullOrEmpty(txtPassword.Value))
+            {
+                MessageBox.Show("Please Fill in the blanks");
+            }
+            else
+            {
+                string username = txtUsername.Value.Trim();
+                string password = txtPassword.Value.Trim();
+                verifyAccount(username, password);
+            }
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+        }
+
+        private void verifyAccount(string username, string password)
+        {
+            clsAccountUser auth = new clsAccountUser();
+            verified = auth.authenticate(username, password);
+            if (verified)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                txtPassword.Value = String.Empty;
+                txtPassword.Focus();
+            }
         }
 
         private void BtnQuit_Click(object sender, EventArgs e)

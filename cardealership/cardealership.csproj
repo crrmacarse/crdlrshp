@@ -127,6 +127,36 @@
     <Compile Include="Modules\Inventory\ucInventory.Designer.cs">
       <DependentUpon>ucInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Sales\ucSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Sales\ucSales.Designer.cs">
+      <DependentUpon>ucSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Settings\Dialog\frmCreateNewCarModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Settings\Dialog\frmCreateNewCarModel.Designer.cs">
+      <DependentUpon>frmCreateNewCarModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Settings\ucSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Settings\ucSettings.Designer.cs">
+      <DependentUpon>ucSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Settings\User Control\ucAccountUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Settings\User Control\ucAccountUser.Designer.cs">
+      <DependentUpon>ucAccountUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Settings\User Control\ucCarModel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Settings\User Control\ucCarModel.Designer.cs">
+      <DependentUpon>ucCarModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Common\Forms\frmBasis.resx">
@@ -159,6 +189,18 @@
     <EmbeddedResource Include="Modules\Inventory\ucInventory.resx">
       <DependentUpon>ucInventory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Sales\ucSales.resx">
+      <DependentUpon>ucSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Settings\ucSettings.resx">
+      <DependentUpon>ucSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Settings\User Control\ucAccountUser.resx">
+      <DependentUpon>ucAccountUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Settings\User Control\ucCarModel.resx">
+      <DependentUpon>ucCarModel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -186,8 +228,6 @@
     <Folder Include="Modules\Home\" />
     <Folder Include="Modules\Sales\Dialog\" />
     <Folder Include="Modules\Sales\User Control\" />
-    <Folder Include="Modules\Settings\Dialog\" />
-    <Folder Include="Modules\Settings\User Control\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

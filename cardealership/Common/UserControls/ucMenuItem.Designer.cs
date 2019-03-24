@@ -52,10 +52,12 @@
             // pbIcon
             // 
             this.pbIcon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbIcon.Location = new System.Drawing.Point(7, 14);
+            this.pbIcon.Location = new System.Drawing.Point(14, 18);
             this.pbIcon.Name = "pbIcon";
-            this.pbIcon.Size = new System.Drawing.Size(33, 30);
+            this.pbIcon.Size = new System.Drawing.Size(18, 18);
+            this.pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbIcon.TabIndex = 38;
             this.pbIcon.TabStop = false;
             this.pbIcon.Click += new System.EventHandler(this.UC_Click);
@@ -98,6 +100,7 @@
             this.Click += new System.EventHandler(this.UC_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

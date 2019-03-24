@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-
-using cardealership.Common.Forms;
 using Microsoft.Win32;
+
+using cardealership.Class;
+using cardealership.Common.Forms;
 
 namespace cardealership
 {
@@ -22,6 +23,7 @@ namespace cardealership
 
         private void btnLaunch_Click(object sender, EventArgs e)
         {
+           
             this.Hide();
 
             frmMain frm = new frmMain();
@@ -41,6 +43,7 @@ namespace cardealership
             this.Hide();
 
             frmConfig frm = new frmConfig();
+            //frm.ProcessRegistry();
             frm.StartPosition = FormStartPosition.CenterScreen;
 
             frm.ShowDialog();
@@ -50,10 +53,57 @@ namespace cardealership
 
         private void FrmGenesis_Load(object sender, EventArgs e)
         {
+            // pass connection string here
+            clsConnection con = new clsConnection();
+            con.TestConnection();
             
-                // read registry here
 
+            // read registry here
         }
+
+        RegistryKey MainKey = Registry.CurrentUser;
+        string sKey = @"Software\CPUSTIK";
+
+        public bool CreateRegistrySubKey()
+        {
+            RegistryKeyPermissionCheck KeyPermissions;
+            KeyPermissions = RegistryKeyPermissionCheck.Default;
+
+            try
+            {
+                MainKey.CreateSubKey(sKey, KeyPermissions);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public string ReadRegistryKey(string sKeyName)
+        {
+            RegistryKey rkKey;
+            string val = string.Empty;
+
+            try
+            {
+                rkKey = MainKey.OpenSubKey(sKeyName, true);
+                if(rkKey == null)
+                {
+                    CreateRegistrySubKey();
+                }
+
+                val = rkKey.GetValue(sKeyName).ToString() ;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return val;
+        }
+
+
 
         
     }
