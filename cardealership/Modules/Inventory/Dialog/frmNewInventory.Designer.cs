@@ -1,4 +1,4 @@
-﻿namespace cardealership.Modules.Inventory.Dialog
+﻿namespace cardealership.Modules.Inventory
 {
     partial class frmNewInventory
     {

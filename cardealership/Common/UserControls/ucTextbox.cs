@@ -30,5 +30,10 @@ namespace cardealership.Common.UserControls
         {
             txtValue.Text = this.value;
         }
+
+        private void TxtValue_DoubleClick(object sender, EventArgs e)
+        {
+            txtValue.Clear();
+        }
     }
 }

@@ -64,7 +64,8 @@
     <Compile Include="Class\clsAccountUser.cs" />
     <Compile Include="Class\clsCar.cs" />
     <Compile Include="Class\clsConnection.cs" />
-    <Compile Include="Class\clsGeneral.cs" />
+    <Compile Include="Class\clsInventory.cs" />
+    <Compile Include="Class\General.cs" />
     <Compile Include="Class\clsMenu.cs" />
     <Compile Include="Class\clsRegistryKey.cs" />
     <Compile Include="Common\Forms\frmBasis.cs">
@@ -133,6 +134,12 @@
     <Compile Include="Modules\Sales\ucSales.Designer.cs">
       <DependentUpon>ucSales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Settings\Dialog\frmCreateNewAccountUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Settings\Dialog\frmCreateNewAccountUser.Designer.cs">
+      <DependentUpon>frmCreateNewAccountUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Settings\Dialog\frmCreateNewCarModel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +199,12 @@
     <EmbeddedResource Include="Modules\Sales\ucSales.resx">
       <DependentUpon>ucSales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Settings\Dialog\frmCreateNewAccountUser.resx">
+      <DependentUpon>frmCreateNewAccountUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Settings\Dialog\frmCreateNewCarModel.resx">
+      <DependentUpon>frmCreateNewCarModel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\Settings\ucSettings.resx">
       <DependentUpon>ucSettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,7 +238,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modules\Home\" />
     <Folder Include="Modules\Sales\Dialog\" />
     <Folder Include="Modules\Sales\User Control\" />
   </ItemGroup>

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace cardealership.Modules.Inventory.Dialog
+namespace cardealership.Modules.Inventory
 {
     public partial class frmNewInventory : Form
     {

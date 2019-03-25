@@ -18,8 +18,8 @@ namespace cardealership.Common
         {
             if (String.IsNullOrEmpty(txtUsername.Value) || String.IsNullOrEmpty(txtPassword.Value))
             {
-                MessageBox.Show("Please Fill in the blanks");
-            }
+                General.showMessageBox("Warning", "Please fill in the blanks", MsgTypes.warning, "Sign-in Error");
+           }
             else
             {
                 string username = txtUsername.Value.Trim();
@@ -33,6 +33,7 @@ namespace cardealership.Common
         {
             clsAccountUser auth = new clsAccountUser();
             verified = auth.authenticate(username, password);
+
             if (verified)
             {
                 this.DialogResult = DialogResult.OK;
@@ -59,5 +60,12 @@ namespace cardealership.Common
             }
         }
 
+        private void FrmSignin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSignin.PerformClick();
+            }
+        }
     }
 }

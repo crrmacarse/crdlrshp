@@ -55,7 +55,7 @@ namespace cardealership.Common.Forms
                     btnOk.BackColor = Color.FromArgb(242, 155, 26);
                     break;
                 case "question":
-                    lblTitle.ForeColor = Color.FromArgb(25, 182, 238);
+                    lblTitle.ForeColor = Color.FromArgb(233, 84, 32);
                     btnYes.Visible = true;
                     btnNo.Visible = true;
                     break;

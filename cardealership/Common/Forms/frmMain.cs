@@ -16,10 +16,11 @@ namespace cardealership.Common.Forms
         bool connected = false;
         List<clsMenu> listClsMenu = new List<clsMenu>();
 
+        // flipped bcos on how it dynamically loads into the system. fix soon
         public enum ApplicationMenu
-        {
+        { 
+            Settings,       
             Inventory,
-            Settings,
             Sales
         }
 
@@ -39,7 +40,7 @@ namespace cardealership.Common.Forms
 
         private void initApplicatioon()
         {
-            this.setApplicationState(ApplicationState.SigningIn);
+            setApplicationState(ApplicationState.SigningIn);
 
             this.scMain.Visible = false;
             this.tsddbAccountUser.Visible = false;
@@ -72,7 +73,7 @@ namespace cardealership.Common.Forms
                 }
             }
 
-            this.setApplicationState(ApplicationState.Ready);
+            setApplicationState(ApplicationState.Ready);
         }
 
         private void loadMenu()
@@ -108,7 +109,6 @@ namespace cardealership.Common.Forms
 
         }
 
-
         // could add account level heirarchy here
         private void addMenu()
         {
@@ -120,11 +120,9 @@ namespace cardealership.Common.Forms
                 menuItem.Caption = menu.Title;
                 menuItem.Dock = DockStyle.Top;
                 menuItem.Icon = menu.Icon;
-                menuItem.StatusUpdated += new EventHandler(MyEventHandlerFunction_StatusUpdated);
-
                 menuItem.BringToFront();
-                //menuItem.customHandler = this.addTabPage;
-                //menuItem.HandleAddTabPage += this.addTabPage;
+
+                menuItem.StatusUpdated += new EventHandler(MyEventHandlerFunction_StatusUpdated);
 
                 this.pnlMenu.Controls.Add(menuItem);
             }
@@ -162,7 +160,7 @@ namespace cardealership.Common.Forms
 
             if(uc == null) { return; }
 
-            this.setApplicationState(ApplicationState.Busy);
+            setApplicationState(ApplicationState.Busy);
             scMain.Panel2.SuspendLayout();
             TabPage tp = new TabPage(page);
             tp.Name = page;
@@ -171,7 +169,7 @@ namespace cardealership.Common.Forms
             tpPage.TabPages.Add(tp);
             tpPage.SelectedTab = tp;
             scMain.Panel2.ResumeLayout();
-            this.setApplicationState(ApplicationState.Ready);
+            setApplicationState(ApplicationState.Ready);
 
         }
 
@@ -232,39 +230,10 @@ namespace cardealership.Common.Forms
             this.DialogResult = DialogResult.Abort;
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void TsmiAbout_Click(object sender, EventArgs e)
         {
-            this.showMessageBox("Connectiin Error", "Please restart or wait for further instructions", clsMsgTypes.warning);
-        }
-
-        /// <summary>
-        ///  System Messagebox
-        /// </summary>
-        /// <param name="title">Main title</param>
-        /// <param name="description">Messge Description</param>
-        /// <param name="types">Message Types</param>
-        /// <param name="subtitle">Optional Subtitle. Useful for additional details</param>
-        /// <returns></returns>
-
-        public void showMessageBox(string title, string description, string types = clsMsgTypes.info, string subtitle = "")
-        {
-            frmMessageBox frm = new frmMessageBox();
-
-            frm.Title = title;
-            frm.SubTitle = subtitle;
-            frm.MsgType = types;
-            frm.Description = description;
-
-            // could add a dialog result here that handles questions
-            frm.ShowDialog();
-        }
-
-
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            frmMessageBox frm = new frmMessageBox();
-            frm.ShowDialog();
-            setApplicationState(ApplicationState.Ready);
+            General.showMessageBox("Developer's Note", "This is ONLY a rush development and is not advisable in Production. " +
+                "Please be guided accordingly.", MsgTypes.info, "the author" /* author: http://github.com/crrmacarse */);
         }
 
     }

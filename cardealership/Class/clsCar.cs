@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace cardealership.Class
 {
@@ -13,17 +9,14 @@ namespace cardealership.Class
         private int id;
         private string code;
         private string name;
-        private DateTime yearrelease;
         private DateTime datecreated;
         private bool status;
-        List<clsCar> listCar;
 
         clsConnection conn = new clsConnection();
 
         public int ID { get { return this.id; } set { this.id = value; } }
         public string Code { get { return this.code; } set { this.code = value; } }
         public string Name { get { return this.name; } set { this.name = value; } }
-        public DateTime YearRelease { get { return this.yearrelease; } set { this.yearrelease = value; } }
         public DateTime DateCreated { get { return this.datecreated; } set { this.datecreated = value; } }
         public bool Status { get { return this.status; } set { this.status = value; } }
 
@@ -32,12 +25,12 @@ namespace cardealership.Class
 
         }
 
-        public  List<clsCar> GetCarList(string search = null)
+        public  List<clsCar> GetCarList()
         {
             List<clsCar> list = new List<clsCar>();
             clsCar car;
 
-            string sQuery = "SELECT idCarModel, CMCode, CMName, CMDateCreated, CMStatus FROM CarModel WHERE (CMCode LIKE '%'+@search+'%' OR CMName LIKE '%'+@search+'%')";
+            string sQuery = "SELECT idCarModel, CMCode, CMName, CMDateCreated, CMStatus FROM CarModel";
             using (SqlConnection oConnection = new SqlConnection(conn.getConnectionString()))
             {
                 try
@@ -45,7 +38,6 @@ namespace cardealership.Class
                     oConnection.Open();
                     using(SqlCommand oCommand = new SqlCommand(sQuery, oConnection))
                     {
-                        oCommand.Parameters.AddWithValue("@search", search);
                         
                         using(SqlDataReader oReader = oCommand.ExecuteReader())
                         {
@@ -68,52 +60,65 @@ namespace cardealership.Class
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger);
                 }
             }
             return list;
         }
 
-        public bool saveCar(clsCar car)
+        public bool save()
         {
-            bool validation;
-            string sQuery;
+            string sqlQuery = "INSERT INTO CarModel(CMCode, CMName, CMDateCreated, CMStatus) " +
+                              "VALUES(@cmcode,@cmname,GETDATE(),1)";
 
-
-           if(car.ID > 0)
+            using (SqlConnection connection = new SqlConnection(General.connectionString()))
             {
-                // update query here
-            }
-            else
-            {
-                // save query here
-            }
-
-           using(SqlConnection oConnection = new SqlConnection(conn.getConnectionString()))
-            {
+                connection.Open();
                 try
                 {
-                    oConnection.Open();
-                    //using(SqlCommand oCommand = new SqlCommand(sQuery, oConnection))
-                    //{
-
-                    //}
+                    using (SqlCommand oCommand = new SqlCommand(sqlQuery, connection))
+                    {
+                        oCommand.Parameters.AddWithValue("@cmcode", this.code);
+                        oCommand.Parameters.AddWithValue("@cmname", this.name);
+                        oCommand.ExecuteNonQuery();
+                        return true;
+                    }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
-                    throw;
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger, ex.Source);
                 }
+
             }
-            return true;
+            return false;
         }
 
+        public bool delete(clsCar car)
+        {
+            using (SqlConnection oConnection = new SqlConnection(General.connectionString()))
+            {
+                oConnection.Open();
+                try
+                {
+                    using (SqlCommand oCommand = new SqlCommand("DELETE FROM CarModel WHERE idCarModel = @idCarModel", oConnection))
+                    {
+                        oCommand.Parameters.AddWithValue("@idCarModel", car.ID);
 
+                        oCommand.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
 
-        // get all cars
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger, ex.Source);
+                }
+            }
 
-        // save car
+            return false;
+        }
 
         // update car
+
     }
 }

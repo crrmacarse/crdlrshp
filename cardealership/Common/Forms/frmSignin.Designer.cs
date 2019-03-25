@@ -37,8 +37,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtUsername = new cardealership.Common.UserControls.ucTextbox();
             this.txtPassword = new cardealership.Common.UserControls.ucTextbox();
+            this.txtUsername = new cardealership.Common.UserControls.ucTextbox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,16 +147,6 @@
             this.panel4.Size = new System.Drawing.Size(419, 1);
             this.panel4.TabIndex = 60;
             // 
-            // txtUsername
-            // 
-            this.txtUsername.BackColor = System.Drawing.Color.White;
-            this.txtUsername.Location = new System.Drawing.Point(31, 97);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(358, 37);
-            this.txtUsername.TabIndex = 63;
-            this.txtUsername.UseSystemPasswordChar = false;
-            this.txtUsername.Value = null;
-            // 
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.Color.White;
@@ -166,6 +156,16 @@
             this.txtPassword.TabIndex = 64;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.Value = null;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.BackColor = System.Drawing.Color.White;
+            this.txtUsername.Location = new System.Drawing.Point(31, 97);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(358, 37);
+            this.txtUsername.TabIndex = 63;
+            this.txtUsername.UseSystemPasswordChar = false;
+            this.txtUsername.Value = null;
             // 
             // frmSignin
             // 
@@ -187,6 +187,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSignin";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSignin_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSignin_KeyDown);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace cardealership.Class
 {
@@ -54,7 +53,7 @@ namespace cardealership.Class
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger);
                     return false;
                 }
             }

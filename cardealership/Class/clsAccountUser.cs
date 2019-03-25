@@ -1,7 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Windows.Forms;
-using cardealership.Class;
 
 namespace cardealership.Class
 {
@@ -57,25 +56,121 @@ namespace cardealership.Class
                                 return true;
                             }
 
-                            MessageBox.Show("There seems to be an error in username or password");
+                            General.showMessageBox("Warning", "There seems to be an error in username or password", MsgTypes.warning, "Sign-in Error");
                         }
 
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message); ;
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger);
                 }
             }
 
             return false;
         }
 
+
+        public List<clsAccountUser> getList()
+        {
+            List<clsAccountUser> list = new List<clsAccountUser>();
+            clsAccountUser account;
+
+            string sQuery = "SELECT idEmployee, EMPUsername, EMPFirstName, EMPMiddleName, EMPLastName, EMPDateCreated, EMPStatus FROM Employee ";
+            using(SqlConnection oConnection = new SqlConnection(General.connectionString()))
+            {
+                try
+                {
+                    oConnection.Open();
+                    using (SqlCommand oCommand = new SqlCommand(sQuery, oConnection))
+                    {
+                        using (SqlDataReader oReader = oCommand.ExecuteReader())
+                        {
+                            while (oReader.Read())
+                            {
+                                account = new clsAccountUser();
+                                account.id = oReader.GetInt32(oReader.GetOrdinal("idEmployee"));
+                                account.Username = oReader.GetString(oReader.GetOrdinal("EMPUsername"));
+                                account.firstname = oReader.GetString(oReader.GetOrdinal("EMPFirstName"));
+                                account.middlename = oReader.GetString(oReader.GetOrdinal("EMPMiddleName"));
+                                account.lastname = oReader.GetString(oReader.GetOrdinal("EMPLastName"));
+                                account.datecreated = oReader.GetDateTime(oReader.GetOrdinal("EMPDateCreated"));
+                                account.status = oReader.GetBoolean(oReader.GetOrdinal("EMPStatus"));
+
+                                list.Add(account);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger);
+                }
+            }
+
+            return list;
+        }
+
+        public bool save()
+        {
+            string sqlQuery = "INSERT INTO Employee(EMPUsername, EMPPassword, EMPFirstName, EMPMiddleName, EMPLastName, EMPDateCreated, EMPStatus) " +
+                              "VALUES(@username,@password,@firstname,@middlename,@lastname,GETDATE(),1)";
+            using(SqlConnection oConnection = new SqlConnection(General.connectionString()))
+            {
+                oConnection.Open();
+                try
+                {
+                    using(SqlCommand oCommand = new SqlCommand(sqlQuery, oConnection))
+                    {
+                        oCommand.Parameters.AddWithValue("@username", this.username);
+                        oCommand.Parameters.AddWithValue("@password", this.password);
+                        oCommand.Parameters.AddWithValue("@firstname", this.firstname);
+                        oCommand.Parameters.AddWithValue("@middlename", this.middlename);
+                        oCommand.Parameters.AddWithValue("@lastname", this.lastname);
+
+                        oCommand.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger, ex.Source);
+                }
+            }
+
+            return false;
+        }
+
+        public bool delete(clsAccountUser account)
+        {
+            using (SqlConnection oConnection = new SqlConnection(General.connectionString()))
+            {
+                oConnection.Open();
+                try
+                {
+                    using (SqlCommand oCommand = new SqlCommand("DELETE FROM Employee WHERE idEmployee = @idEmployee", oConnection))
+                    {
+                        oCommand.Parameters.AddWithValue("@idEmployee", account.ID);
+
+                        oCommand.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger, ex.Source);
+                }
+            }
+
+            return false; 
+        }
+
+
         // change pass func
 
-
-        // save 
-
+        // password hash function
 
         // update
 

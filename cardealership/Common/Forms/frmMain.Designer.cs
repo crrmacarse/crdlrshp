@@ -98,15 +98,16 @@
             this.tsmiAbout.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.tsmiAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tsmiAbout.Name = "tsmiAbout";
-            this.tsmiAbout.Size = new System.Drawing.Size(135, 22);
+            this.tsmiAbout.Size = new System.Drawing.Size(180, 22);
             this.tsmiAbout.Text = "About";
+            this.tsmiAbout.Click += new System.EventHandler(this.TsmiAbout_Click);
             // 
             // tsmiPreferences
             // 
             this.tsmiPreferences.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.tsmiPreferences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tsmiPreferences.Name = "tsmiPreferences";
-            this.tsmiPreferences.Size = new System.Drawing.Size(135, 22);
+            this.tsmiPreferences.Size = new System.Drawing.Size(180, 22);
             this.tsmiPreferences.Text = "Preferences";
             // 
             // tsmiSettings
@@ -115,28 +116,28 @@
             this.tsmiSettings.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.tsmiSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tsmiSettings.Name = "tsmiSettings";
-            this.tsmiSettings.Size = new System.Drawing.Size(135, 22);
+            this.tsmiSettings.Size = new System.Drawing.Size(180, 22);
             this.tsmiSettings.Text = "Settings";
             // 
             // tsmiSignout
             // 
             this.tsmiSignout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tsmiSignout.Name = "tsmiSignout";
-            this.tsmiSignout.Size = new System.Drawing.Size(135, 22);
+            this.tsmiSignout.Size = new System.Drawing.Size(180, 22);
             this.tsmiSignout.Text = "Sign-out";
             this.tsmiSignout.Click += new System.EventHandler(this.TsmiSignout_Click);
             // 
             // tssSeparator
             // 
             this.tssSeparator.Name = "tssSeparator";
-            this.tssSeparator.Size = new System.Drawing.Size(132, 6);
+            this.tssSeparator.Size = new System.Drawing.Size(177, 6);
             // 
             // tsmiRestart
             // 
             this.tsmiRestart.BackColor = System.Drawing.SystemColors.Control;
             this.tsmiRestart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tsmiRestart.Name = "tsmiRestart";
-            this.tsmiRestart.Size = new System.Drawing.Size(135, 22);
+            this.tsmiRestart.Size = new System.Drawing.Size(180, 22);
             this.tsmiRestart.Text = "Restart";
             this.tsmiRestart.Click += new System.EventHandler(this.TsmiRestart_Click);
             // 
@@ -144,7 +145,7 @@
             // 
             this.tsmiExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tsmiExit.Name = "tsmiExit";
-            this.tsmiExit.Size = new System.Drawing.Size(135, 22);
+            this.tsmiExit.Size = new System.Drawing.Size(180, 22);
             this.tsmiExit.Text = "Exit";
             this.tsmiExit.Click += new System.EventHandler(this.TsmiExit_Click);
             // 
@@ -162,7 +163,7 @@
             this.tsslApplicationState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
             this.tsslApplicationState.Margin = new System.Windows.Forms.Padding(3);
             this.tsslApplicationState.Name = "tsslApplicationState";
-            this.tsslApplicationState.Size = new System.Drawing.Size(75, 19);
+            this.tsslApplicationState.Size = new System.Drawing.Size(75, 23);
             this.tsslApplicationState.Text = "Sign-in first..";
             // 
             // ilMain
