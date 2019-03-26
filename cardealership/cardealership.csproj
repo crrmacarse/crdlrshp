@@ -63,8 +63,10 @@
   <ItemGroup>
     <Compile Include="Class\clsAccountUser.cs" />
     <Compile Include="Class\clsCar.cs" />
+    <Compile Include="Class\clsComboboxItem.cs" />
     <Compile Include="Class\clsConnection.cs" />
     <Compile Include="Class\clsInventory.cs" />
+    <Compile Include="Class\clsSales.cs" />
     <Compile Include="Class\General.cs" />
     <Compile Include="Class\clsMenu.cs" />
     <Compile Include="Class\clsRegistryKey.cs" />
@@ -127,6 +129,18 @@
     </Compile>
     <Compile Include="Modules\Inventory\ucInventory.Designer.cs">
       <DependentUpon>ucInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Sales\Dialog\frmNewSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Sales\Dialog\frmNewSales.Designer.cs">
+      <DependentUpon>frmNewSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Sales\Dialog\frmSalesData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Sales\Dialog\frmSalesData.Designer.cs">
+      <DependentUpon>frmSalesData.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Sales\ucSales.cs">
       <SubType>UserControl</SubType>
@@ -196,6 +210,12 @@
     <EmbeddedResource Include="Modules\Inventory\ucInventory.resx">
       <DependentUpon>ucInventory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Sales\Dialog\frmNewSales.resx">
+      <DependentUpon>frmNewSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Sales\Dialog\frmSalesData.resx">
+      <DependentUpon>frmSalesData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\Sales\ucSales.resx">
       <DependentUpon>ucSales.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,10 +257,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modules\Sales\Dialog\" />
-    <Folder Include="Modules\Sales\User Control\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>

@@ -16,6 +16,7 @@ namespace cardealership.Class
 
     public static class General
     {
+        public static clsAccountUser currentUser = null;
         
         public enum ApplicationState
         {
@@ -106,6 +107,19 @@ namespace cardealership.Class
             // idk how to access the form still and change the values in there or something 
             // about accesing a function in main and pass this variable to control
 
+        }
+
+        public static bool VerifyAccount(string username, string password)
+        {
+            clsAccountUser auth = new clsAccountUser();
+            currentUser = auth.authenticate(username, password);
+
+            if(currentUser != null)
+            {
+                return true;
+            }
+
+            return false;
         }
 
     }

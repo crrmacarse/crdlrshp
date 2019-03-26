@@ -65,6 +65,8 @@ namespace cardealership.Common.Forms
 
                     // fills menu list
                     addMenu();
+
+                    this.tsddbAccountUser.Text = "@" + General.currentUser.Username;
                 }
                 else
                 {

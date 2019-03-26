@@ -48,7 +48,7 @@ namespace cardealership.Modules.Settings.User_Control
         {
             frmCreateNewCarModel frm = new frmCreateNewCarModel();
             DialogResult res = frm.ShowDialog();
-            if (res == DialogResult.OK) { loadCarModel(); }
+            if (res == DialogResult.OK) { loadCarModel(); General.showMessageBox("Succes", "Sucesfully added new record", MsgTypes.success); }
         }
 
         private void LvCarModel_KeyDown(object sender, KeyEventArgs e)
@@ -65,6 +65,7 @@ namespace cardealership.Modules.Settings.User_Control
                     {
                         General.showMessageBox("Success", "Succesfully deleted the record", MsgTypes.success);
                         lvCarModel.SelectedItems[0].Remove();
+                        tsslCarModelCount.Text = "Row Count: " + lvCarModel.Items.Count;
                     }
                 }
             }

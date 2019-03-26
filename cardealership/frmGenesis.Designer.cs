@@ -51,7 +51,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(157, 45);
             this.label4.TabIndex = 39;
-            this.label4.Text = "Jose Rizal\r\nApolinario Mabini\r\nJoseph Estrada";
+            this.label4.Text = "Patrick Servano\r\nErskine Jay Dongon \r\nRene Anthony Arricivita";
             // 
             // label3
             // 

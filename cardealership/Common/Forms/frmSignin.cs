@@ -31,8 +31,7 @@ namespace cardealership.Common
 
         private void verifyAccount(string username, string password)
         {
-            clsAccountUser auth = new clsAccountUser();
-            verified = auth.authenticate(username, password);
+            verified = General.VerifyAccount(username, password);
 
             if (verified)
             {

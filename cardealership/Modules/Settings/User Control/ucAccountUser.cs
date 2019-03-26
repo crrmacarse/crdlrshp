@@ -47,7 +47,7 @@ namespace cardealership.Modules.Settings.User_Control
         {
             frmCreateNewAccountUser frm = new frmCreateNewAccountUser();
             DialogResult res = frm.ShowDialog();
-            if (res == DialogResult.OK) { loadEmployee(); }
+            if (res == DialogResult.OK) { loadEmployee(); General.showMessageBox("Succes", "Sucesfully added new record", MsgTypes.success); }
         }
 
         private void LvEmployee_KeyDown(object sender, KeyEventArgs e)
@@ -63,6 +63,7 @@ namespace cardealership.Modules.Settings.User_Control
                     if (account.delete((clsAccountUser)lvEmployee.SelectedItems[0].Tag)){
                         General.showMessageBox("Success", "Succesfully deleted the record", MsgTypes.success);
                         lvEmployee.SelectedItems[0].Remove();
+                        tsslEmployee.Text = "Row Count: " + lvEmployee.Items.Count;
                     }
                 }
             }

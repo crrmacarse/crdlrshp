@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace cardealership.Class
 {
-    class clsAccountUser
+    public class clsAccountUser
     {
         private int id;
         private string username;
@@ -27,7 +27,7 @@ namespace cardealership.Class
         public bool Status { get { return this.status; } set { this.status = value; } }
         public string FullName { get { return this.lastname.ToUpper() + "," + this.firstname + " " + this.middlename.ToUpper()[0]; } }
 
-       public bool authenticate(string username, string password)
+       public clsAccountUser authenticate(string username, string password)
         {
             using (SqlConnection oConnection = new SqlConnection(conn.getConnectionString()))
             {
@@ -43,8 +43,8 @@ namespace cardealership.Class
                         {
                             if (oReader.HasRows)
                             {
+                                clsAccountUser clsAccountUser = new clsAccountUser();
                                 if (oReader.Read()) {
-                                    clsAccountUser clsAccountUser = new clsAccountUser();
                                     clsAccountUser.ID = oReader.GetInt32(oReader.GetOrdinal("idEmployee"));
                                     clsAccountUser.Username = oReader.GetString(oReader.GetOrdinal("EMPUsername"));
                                     clsAccountUser.Firstname = oReader.GetString(oReader.GetOrdinal("EMPFirstName"));
@@ -53,7 +53,7 @@ namespace cardealership.Class
                                     clsAccountUser.DateCreated = oReader.GetDateTime(oReader.GetOrdinal("EMPDateCreated"));
                                     clsAccountUser.Status = oReader.GetBoolean(oReader.GetOrdinal("EMPStatus"));
                                 }
-                                return true;
+                                return clsAccountUser;
                             }
 
                             General.showMessageBox("Warning", "There seems to be an error in username or password", MsgTypes.warning, "Sign-in Error");
@@ -67,7 +67,7 @@ namespace cardealership.Class
                 }
             }
 
-            return false;
+            return null;
         }
 
 

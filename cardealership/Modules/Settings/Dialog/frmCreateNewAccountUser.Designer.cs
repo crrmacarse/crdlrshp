@@ -78,7 +78,7 @@
             this.btnSave.Location = new System.Drawing.Point(-1, 0);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(195, 41);
-            this.btnSave.TabIndex = 46;
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
@@ -94,7 +94,7 @@
             this.btnCancel.Location = new System.Drawing.Point(194, 0);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(195, 41);
-            this.btnCancel.TabIndex = 45;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
@@ -117,7 +117,7 @@
             this.txtPassword.Location = new System.Drawing.Point(31, 179);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(330, 37);
-            this.txtPassword.TabIndex = 93;
+            this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.Value = null;
             // 
@@ -127,7 +127,7 @@
             this.txtUsername.Location = new System.Drawing.Point(31, 102);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(330, 37);
-            this.txtUsername.TabIndex = 92;
+            this.txtUsername.TabIndex = 0;
             this.txtUsername.UseSystemPasswordChar = false;
             this.txtUsername.Value = null;
             // 
@@ -179,7 +179,7 @@
             this.txtMiddleName.Location = new System.Drawing.Point(30, 333);
             this.txtMiddleName.Name = "txtMiddleName";
             this.txtMiddleName.Size = new System.Drawing.Size(330, 37);
-            this.txtMiddleName.TabIndex = 101;
+            this.txtMiddleName.TabIndex = 3;
             this.txtMiddleName.UseSystemPasswordChar = false;
             this.txtMiddleName.Value = null;
             // 
@@ -189,7 +189,7 @@
             this.txtFirstName.Location = new System.Drawing.Point(32, 256);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(330, 37);
-            this.txtFirstName.TabIndex = 100;
+            this.txtFirstName.TabIndex = 2;
             this.txtFirstName.UseSystemPasswordChar = false;
             this.txtFirstName.Value = null;
             // 
@@ -223,7 +223,7 @@
             this.txtLastName.Location = new System.Drawing.Point(32, 410);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(330, 37);
-            this.txtLastName.TabIndex = 103;
+            this.txtLastName.TabIndex = 4;
             this.txtLastName.UseSystemPasswordChar = false;
             this.txtLastName.Value = null;
             // 
