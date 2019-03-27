@@ -35,10 +35,10 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cmbCarModel = new System.Windows.Forms.ComboBox();
+            this.cmbInventory = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblInformation = new System.Windows.Forms.Label();
             this.lblCarModel = new System.Windows.Forms.Label();
             this.lblSupplier = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -100,6 +100,7 @@
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -127,18 +128,19 @@
             this.panel1.Size = new System.Drawing.Size(370, 41);
             this.panel1.TabIndex = 111;
             // 
-            // cmbCarModel
+            // cmbInventory
             // 
-            this.cmbCarModel.BackColor = System.Drawing.Color.White;
-            this.cmbCarModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCarModel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbCarModel.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCarModel.ForeColor = System.Drawing.Color.Gray;
-            this.cmbCarModel.FormattingEnabled = true;
-            this.cmbCarModel.Location = new System.Drawing.Point(26, 107);
-            this.cmbCarModel.Name = "cmbCarModel";
-            this.cmbCarModel.Size = new System.Drawing.Size(330, 31);
-            this.cmbCarModel.TabIndex = 115;
+            this.cmbInventory.BackColor = System.Drawing.Color.White;
+            this.cmbInventory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbInventory.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbInventory.ForeColor = System.Drawing.Color.Gray;
+            this.cmbInventory.FormattingEnabled = true;
+            this.cmbInventory.Location = new System.Drawing.Point(26, 107);
+            this.cmbInventory.Name = "cmbInventory";
+            this.cmbInventory.Size = new System.Drawing.Size(330, 31);
+            this.cmbInventory.TabIndex = 115;
+            this.cmbInventory.SelectedIndexChanged += new System.EventHandler(this.cmbInventory_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -163,16 +165,16 @@
             this.label2.TabIndex = 117;
             this.label2.Text = "Car Model";
             // 
-            // label4
+            // lblInformation
             // 
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label4.Location = new System.Drawing.Point(22, 163);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 36);
-            this.label4.TabIndex = 118;
-            this.label4.Text = "Information";
+            this.lblInformation.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lblInformation.Location = new System.Drawing.Point(22, 163);
+            this.lblInformation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInformation.Name = "lblInformation";
+            this.lblInformation.Size = new System.Drawing.Size(163, 36);
+            this.lblInformation.TabIndex = 118;
+            this.lblInformation.Text = "Information";
             // 
             // lblCarModel
             // 
@@ -240,9 +242,9 @@
             this.Controls.Add(this.lblSupplier);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblCarModel);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblInformation);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.cmbCarModel);
+            this.Controls.Add(this.cmbInventory);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lblTitle);
@@ -253,6 +255,7 @@
             this.Name = "frmSalesData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSalesData";
+            this.Load += new System.EventHandler(this.frmSalesData_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -266,10 +269,10 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox cmbCarModel;
+        private System.Windows.Forms.ComboBox cmbInventory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblInformation;
         private System.Windows.Forms.Label lblCarModel;
         private System.Windows.Forms.Label lblSupplier;
         private System.Windows.Forms.Label label6;

@@ -37,7 +37,7 @@ namespace cardealership.Modules.Inventory
 
                 cmbCarModel.Items.Add(oItem);
             }
-         }
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {

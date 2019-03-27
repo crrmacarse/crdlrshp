@@ -107,6 +107,7 @@
             this.lvSalesControl.UseCompatibleStateImageBehavior = false;
             this.lvSalesControl.View = System.Windows.Forms.View.Tile;
             this.lvSalesControl.DoubleClick += new System.EventHandler(this.lvSalesControl_DoubleClick);
+            this.lvSalesControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lvSalesControl_KeyDown);
             // 
             // chSalesCode
             // 

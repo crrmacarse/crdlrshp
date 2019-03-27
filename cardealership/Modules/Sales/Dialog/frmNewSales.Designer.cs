@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.dtpDateOfPurchase = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCustomerContactNo = new System.Windows.Forms.Label();
+            this.lblCustomerAddress = new System.Windows.Forms.Label();
+            this.lblCustomerFullName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -39,58 +39,60 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblCarModelCede = new System.Windows.Forms.Label();
-            this.txtLastName = new cardealership.Common.UserControls.ucTextbox();
-            this.txtMiddleName = new cardealership.Common.UserControls.ucTextbox();
-            this.txtFirstName = new cardealership.Common.UserControls.ucTextbox();
-            this.txtUsername = new cardealership.Common.UserControls.ucTextbox();
+            this.lblReceiptCode = new System.Windows.Forms.Label();
+            this.txtCustomerContactNo = new cardealership.Common.UserControls.ucTextbox();
+            this.txtCustomerAddress = new cardealership.Common.UserControls.ucTextbox();
+            this.txtCustomerFullName = new cardealership.Common.UserControls.ucTextbox();
+            this.txtReceiptCode = new cardealership.Common.UserControls.ucTextbox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpDateOfPurchase
             // 
             this.dtpDateOfPurchase.CalendarForeColor = System.Drawing.Color.Gray;
+            this.dtpDateOfPurchase.CalendarTitleForeColor = System.Drawing.Color.Gray;
             this.dtpDateOfPurchase.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDateOfPurchase.Location = new System.Drawing.Point(27, 402);
+            this.dtpDateOfPurchase.Location = new System.Drawing.Point(26, 416);
             this.dtpDateOfPurchase.Name = "dtpDateOfPurchase";
             this.dtpDateOfPurchase.Size = new System.Drawing.Size(328, 29);
             this.dtpDateOfPurchase.TabIndex = 132;
             // 
-            // label3
+            // lblCustomerContactNo
             // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.label3.Location = new System.Drawing.Point(23, 307);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(334, 24);
-            this.label3.TabIndex = 131;
-            this.label3.Text = "Customer Contact No";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCustomerContactNo.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerContactNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblCustomerContactNo.Location = new System.Drawing.Point(23, 307);
+            this.lblCustomerContactNo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCustomerContactNo.Name = "lblCustomerContactNo";
+            this.lblCustomerContactNo.Size = new System.Drawing.Size(334, 24);
+            this.lblCustomerContactNo.TabIndex = 131;
+            this.lblCustomerContactNo.Text = "Customer Contact No";
+            this.lblCustomerContactNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // lblCustomerAddress
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.label1.Location = new System.Drawing.Point(21, 230);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(334, 24);
-            this.label1.TabIndex = 130;
-            this.label1.Text = "Customer Address";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCustomerAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblCustomerAddress.Location = new System.Drawing.Point(21, 230);
+            this.lblCustomerAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCustomerAddress.Name = "lblCustomerAddress";
+            this.lblCustomerAddress.Size = new System.Drawing.Size(334, 24);
+            this.lblCustomerAddress.TabIndex = 130;
+            this.lblCustomerAddress.Text = "Customer Address";
+            this.lblCustomerAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // lblCustomerFullName
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.label2.Location = new System.Drawing.Point(21, 153);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(334, 24);
-            this.label2.TabIndex = 129;
-            this.label2.Text = "Customer Full Name";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCustomerFullName.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerFullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblCustomerFullName.Location = new System.Drawing.Point(21, 153);
+            this.lblCustomerFullName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCustomerFullName.Name = "lblCustomerFullName";
+            this.lblCustomerFullName.Size = new System.Drawing.Size(334, 24);
+            this.lblCustomerFullName.TabIndex = 129;
+            this.lblCustomerFullName.Text = "Customer Full Name";
+            this.lblCustomerFullName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel3
             // 
@@ -98,7 +100,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(385, 1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1, 510);
+            this.panel3.Size = new System.Drawing.Size(1, 507);
             this.panel3.TabIndex = 126;
             // 
             // lblTitle
@@ -119,7 +121,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1, 510);
+            this.panel2.Size = new System.Drawing.Size(1, 507);
             this.panel2.TabIndex = 128;
             // 
             // panel4
@@ -145,6 +147,7 @@
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -167,83 +170,96 @@
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 511);
+            this.panel1.Location = new System.Drawing.Point(0, 508);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(386, 41);
             this.panel1.TabIndex = 125;
             // 
-            // lblCarModelCede
+            // lblReceiptCode
             // 
-            this.lblCarModelCede.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarModelCede.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblCarModelCede.Location = new System.Drawing.Point(22, 68);
-            this.lblCarModelCede.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCarModelCede.Name = "lblCarModelCede";
-            this.lblCarModelCede.Size = new System.Drawing.Size(334, 24);
-            this.lblCarModelCede.TabIndex = 124;
-            this.lblCarModelCede.Text = "Receipt Code";
-            this.lblCarModelCede.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblReceiptCode.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReceiptCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblReceiptCode.Location = new System.Drawing.Point(22, 68);
+            this.lblReceiptCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblReceiptCode.Name = "lblReceiptCode";
+            this.lblReceiptCode.Size = new System.Drawing.Size(334, 24);
+            this.lblReceiptCode.TabIndex = 124;
+            this.lblReceiptCode.Text = "Receipt Code";
+            this.lblReceiptCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtLastName
+            // txtCustomerContactNo
             // 
-            this.txtLastName.BackColor = System.Drawing.Color.White;
-            this.txtLastName.Location = new System.Drawing.Point(27, 339);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(330, 37);
-            this.txtLastName.TabIndex = 122;
-            this.txtLastName.UseSystemPasswordChar = false;
-            this.txtLastName.Value = null;
+            this.txtCustomerContactNo.BackColor = System.Drawing.Color.White;
+            this.txtCustomerContactNo.Location = new System.Drawing.Point(27, 339);
+            this.txtCustomerContactNo.Name = "txtCustomerContactNo";
+            this.txtCustomerContactNo.Size = new System.Drawing.Size(330, 37);
+            this.txtCustomerContactNo.TabIndex = 122;
+            this.txtCustomerContactNo.UseSystemPasswordChar = false;
+            this.txtCustomerContactNo.Value = null;
             // 
-            // txtMiddleName
+            // txtCustomerAddress
             // 
-            this.txtMiddleName.BackColor = System.Drawing.Color.White;
-            this.txtMiddleName.Location = new System.Drawing.Point(25, 262);
-            this.txtMiddleName.Name = "txtMiddleName";
-            this.txtMiddleName.Size = new System.Drawing.Size(330, 37);
-            this.txtMiddleName.TabIndex = 121;
-            this.txtMiddleName.UseSystemPasswordChar = false;
-            this.txtMiddleName.Value = null;
+            this.txtCustomerAddress.BackColor = System.Drawing.Color.White;
+            this.txtCustomerAddress.Location = new System.Drawing.Point(25, 262);
+            this.txtCustomerAddress.Name = "txtCustomerAddress";
+            this.txtCustomerAddress.Size = new System.Drawing.Size(330, 37);
+            this.txtCustomerAddress.TabIndex = 121;
+            this.txtCustomerAddress.UseSystemPasswordChar = false;
+            this.txtCustomerAddress.Value = null;
             // 
-            // txtFirstName
+            // txtCustomerFullName
             // 
-            this.txtFirstName.BackColor = System.Drawing.Color.White;
-            this.txtFirstName.Location = new System.Drawing.Point(27, 185);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(330, 37);
-            this.txtFirstName.TabIndex = 120;
-            this.txtFirstName.UseSystemPasswordChar = false;
-            this.txtFirstName.Value = null;
+            this.txtCustomerFullName.BackColor = System.Drawing.Color.White;
+            this.txtCustomerFullName.Location = new System.Drawing.Point(27, 185);
+            this.txtCustomerFullName.Name = "txtCustomerFullName";
+            this.txtCustomerFullName.Size = new System.Drawing.Size(330, 37);
+            this.txtCustomerFullName.TabIndex = 120;
+            this.txtCustomerFullName.UseSystemPasswordChar = false;
+            this.txtCustomerFullName.Value = null;
             // 
-            // txtUsername
+            // txtReceiptCode
             // 
-            this.txtUsername.BackColor = System.Drawing.Color.White;
-            this.txtUsername.Location = new System.Drawing.Point(27, 100);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(330, 37);
-            this.txtUsername.TabIndex = 119;
-            this.txtUsername.UseSystemPasswordChar = false;
-            this.txtUsername.Value = null;
+            this.txtReceiptCode.BackColor = System.Drawing.Color.White;
+            this.txtReceiptCode.Location = new System.Drawing.Point(27, 100);
+            this.txtReceiptCode.Name = "txtReceiptCode";
+            this.txtReceiptCode.Size = new System.Drawing.Size(330, 37);
+            this.txtReceiptCode.TabIndex = 119;
+            this.txtReceiptCode.UseSystemPasswordChar = false;
+            this.txtReceiptCode.Value = null;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.label1.Location = new System.Drawing.Point(23, 389);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(334, 24);
+            this.label1.TabIndex = 133;
+            this.label1.Text = "Date of Purchase";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmNewSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(386, 552);
-            this.Controls.Add(this.dtpDateOfPurchase);
-            this.Controls.Add(this.txtLastName);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtMiddleName);
-            this.Controls.Add(this.txtFirstName);
+            this.ClientSize = new System.Drawing.Size(386, 549);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dtpDateOfPurchase);
+            this.Controls.Add(this.txtCustomerContactNo);
+            this.Controls.Add(this.lblCustomerContactNo);
+            this.Controls.Add(this.txtCustomerAddress);
+            this.Controls.Add(this.txtCustomerFullName);
+            this.Controls.Add(this.lblCustomerAddress);
+            this.Controls.Add(this.lblCustomerFullName);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.lblCarModelCede);
+            this.Controls.Add(this.txtReceiptCode);
+            this.Controls.Add(this.lblReceiptCode);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmNewSales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -256,12 +272,12 @@
         #endregion
 
         private System.Windows.Forms.DateTimePicker dtpDateOfPurchase;
-        private Common.UserControls.ucTextbox txtLastName;
-        private System.Windows.Forms.Label label3;
-        private Common.UserControls.ucTextbox txtMiddleName;
-        private Common.UserControls.ucTextbox txtFirstName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private Common.UserControls.ucTextbox txtCustomerContactNo;
+        private System.Windows.Forms.Label lblCustomerContactNo;
+        private Common.UserControls.ucTextbox txtCustomerAddress;
+        private Common.UserControls.ucTextbox txtCustomerFullName;
+        private System.Windows.Forms.Label lblCustomerAddress;
+        private System.Windows.Forms.Label lblCustomerFullName;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panel2;
@@ -269,7 +285,8 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel panel1;
-        private Common.UserControls.ucTextbox txtUsername;
-        private System.Windows.Forms.Label lblCarModelCede;
+        private Common.UserControls.ucTextbox txtReceiptCode;
+        private System.Windows.Forms.Label lblReceiptCode;
+        private System.Windows.Forms.Label label1;
     }
 }

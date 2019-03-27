@@ -88,10 +88,11 @@ namespace cardealership.Class
             return list;
         }
 
+
         public bool save()
         {
-            string sqlQuery = "INSERT INTO SalesControl(idSalesControl, SCReceiptCode, idEmployee, SCCustFullName, SCCustAddress, SCCustContactNo, SCDateOfPurchase, " +
-                "SCDateCreated, SCStatus) VALUES(@idSalesControl,@code, @idemployee, @custfullname, @custaddress, @custcontactno, @dateofpurchase, GETDATE(),1)";
+            string sqlQuery = "INSERT INTO SalesControl(SCReceiptCode, idEmployee, SCCustFullName, SCCustAddress, SCCustContactNo, SCDateOfPurchase, " +
+                "SCDateCreated, SCStatus) VALUES(@code, @idemployee, @custfullname, @custaddress, @custcontactno, @dateofpurchase, GETDATE(),1)";
 
             using (SqlConnection connection = new SqlConnection(General.connectionString()))
             {
@@ -99,9 +100,9 @@ namespace cardealership.Class
                 try
                 {
                     using (SqlCommand oCommand = new SqlCommand(sqlQuery, connection))
-                    {                      
+                    {
                         oCommand.Parameters.AddWithValue("@code", this.code);
-                        oCommand.Parameters.AddWithValue("@idemployee", this.employee.ID);
+                        oCommand.Parameters.AddWithValue("@idemployee", General.currentUser.ID);
                         oCommand.Parameters.AddWithValue("@custfullname", this.CustFullName);
                         oCommand.Parameters.AddWithValue("@custaddress", this.CustAddress);
                         oCommand.Parameters.AddWithValue("@custcontactno", this.CustAddress);
@@ -158,6 +159,9 @@ namespace cardealership.Class
         public DateTime DateCreated { get { return this.datecreated; } set { this.datecreated = value; } }
         public bool Status { get { return this.status; } set { this.status = value; } }
 
+        // @03271901 : temporary
+        public int idSalesControl { get; set; }
+        public DateTime SalesControlsoldDate { get; set; }
 
         public clsSalesData()
         {   
@@ -219,28 +223,40 @@ namespace cardealership.Class
             return list;
         }
 
+        //public bool save(clsInventory oInventory, clsSales oSales)
 
-        public bool save()
+        // @03271901 : temporary
+        public bool save(clsInventory oInventory)
         {
-            string sqlQuery = "INSERT INTO SalesControl(idSalesControl, SCReceiptCode, idEmployee, SCCustFullName, SCCustAddress, SCCustContactNo, SCDateOfPurchase, " +
-                "SCDateCreated, SCStatus) VALUES(@idSalesControl,@code, @idemployee, @custfullname, @custaddress, @custcontactno, @dateofpurchase, GETDATE(),1)";
+            string sqlQuery = "INSERT INTO SalesData(idSalesControl, idInventory, SDDateCreated, SDStatus) " +
+                "VALUES(@idsalescontrol,@inventory, GETDATE(), 1)";
 
             using (SqlConnection connection = new SqlConnection(General.connectionString()))
             {
                 connection.Open();
                 try
                 {
+                    
                     using (SqlCommand oCommand = new SqlCommand(sqlQuery, connection))
                     {
-                        //oCommand.Parameters.AddWithValue("@code", this.code);
-                        //oCommand.Parameters.AddWithValue("@idemployee", this.employee.ID);
-                        //oCommand.Parameters.AddWithValue("@custfullname", this.CustFullName);
-                        //oCommand.Parameters.AddWithValue("@custaddress", this.CustAddress);
-                        //oCommand.Parameters.AddWithValue("@custcontactno", this.CustAddress);
-                        //oCommand.Parameters.AddWithValue("@dateofpurchase", this.DateOfPurchase);
+                        // @03271901 : temporary
+                        oCommand.Parameters.AddWithValue("@idsalescontrol", this.idSalesControl);
+
+                        //oCommand.Parameters.AddWithValue("@idsalescontrol", oSales.ID);
+                        oCommand.Parameters.AddWithValue("@inventory", oInventory.ID);
                         oCommand.ExecuteNonQuery();
+                
+                    }
+
+                    using(SqlCommand oCommand = new SqlCommand("UPDATE Inventory SET IIsSold = 'true', IIsSoldDate = @solddate WHERE idInventory = @idinventory", connection))
+                    {
+                        oCommand.Parameters.AddWithValue("@idinventory", oInventory.ID);
+                        oCommand.Parameters.AddWithValue("@solddate", this.SalesControlsoldDate);
+                        oCommand.ExecuteNonQuery();
+
                         return true;
                     }
+
                 }
                 catch (Exception ex)
                 {
