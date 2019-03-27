@@ -32,12 +32,16 @@ namespace cardealership.Class
 
         }
 
-        public List<clsSales> Getsales()
+        public List<clsSales> getSales(DateTime from, DateTime to)
         {
             List<clsSales> list = new List<clsSales>();
-            clsSales car;
+            clsSales oSales;
+            clsAccountUser oEmployee;
 
-            string sQuery = "SELECT idCarModel, CMCode, CMName, CMDateCreated, CMStatus FROM CarModel";
+            string sQuery = "SELECT idSalesControl, SalesControl.SCReceiptCode, Employee.idEmployee, Employee.EMPLastName, Employee.EMPFirstName, Employee.EMPMIddleName, " +
+                " SalesControl.SCCustFullName, SalesControl.SCCustAddress, SalesControl.SCCustContactNo, SalesControl.SCDateOfPurchase, SCDateCreated, SCStatus " +
+                " FROM SalesControl INNER JOIN Employee on Employee.idEmployee = SalesControl.idEmployee WHERE SalesControl.SCDateOfPurchase >= @fromdate " + 
+                "AND SalesControl.SCDateOfPurchase <= @todate";
             using (SqlConnection oConnection = new SqlConnection(General.connectionString()))
             {
                 try
@@ -45,21 +49,32 @@ namespace cardealership.Class
                     oConnection.Open();
                     using (SqlCommand oCommand = new SqlCommand(sQuery, oConnection))
                     {
-
+                        oCommand.Parameters.AddWithValue("@fromdate", from);
+                        oCommand.Parameters.AddWithValue("@todate", to);
                         using (SqlDataReader oReader = oCommand.ExecuteReader())
                         {
                             if (oReader.HasRows)
                             {
                                 while (oReader.Read())
                                 {
-                                    car = new clsSales();
-                                    //car.ID = oReader.GetInt32(oReader.GetOrdinal("idCarModel"));
-                                    //car.Code = oReader.GetString(oReader.GetOrdinal("CMCode"));
-                                    //car.Name = oReader.GetString(oReader.GetOrdinal("CMName"));
-                                    //car.DateCreated = oReader.GetDateTime(oReader.GetOrdinal("CMDateCreated"));
-                                    //car.Status = oReader.GetBoolean(oReader.GetOrdinal("CMStatus"));
+                                    oSales = new clsSales();
+                                    oEmployee = new clsAccountUser();
+                                    
+                                    oSales.ID = oReader.GetInt32(oReader.GetOrdinal("idSalesControl"));
+                                    oSales.Code = oReader.GetString(oReader.GetOrdinal("SCReceiptCode"));
+                                    oEmployee.ID = oReader.GetInt32(oReader.GetOrdinal("idEmployee"));
+                                    oEmployee.Firstname = oReader.GetString(oReader.GetOrdinal("EMPFirstName"));
+                                    oEmployee.Middlename = oReader.GetString(oReader.GetOrdinal("EMPMiddleName"));
+                                    oEmployee.Lastname = oReader.GetString(oReader.GetOrdinal("EMPLastName"));
+                                    oSales.Employee = oEmployee;
+                                    oSales.CustFullName = oReader.GetString(oReader.GetOrdinal("SCCustFullName"));
+                                    oSales.CustAddress = oReader.GetString(oReader.GetOrdinal("SCCustAddress"));
+                                    oSales.CustContactNo = oReader.GetString(oReader.GetOrdinal("SCCustContactNo"));
+                                    oSales.DateOfPurchase = oReader.GetDateTime(oReader.GetOrdinal("SCDateOfPurchase"));
+                                    oSales.DateCreated = oReader.GetDateTime(oReader.GetOrdinal("SCDateCreated"));
+                                    oSales.Status = oReader.GetBoolean(oReader.GetOrdinal("SCStatus"));
 
-                                    //list.Add(car);
+                                    list.Add(oSales);
                                 }
                             }
                         }
@@ -67,7 +82,7 @@ namespace cardealership.Class
                 }
                 catch (Exception ex)
                 {
-                    General.showMessageBox("Error", ex.Message, MsgTypes.danger);
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger, System.Reflection.MethodBase.GetCurrentMethod().Name);
                 }
             }
             return list;
@@ -75,8 +90,8 @@ namespace cardealership.Class
 
         public bool save()
         {
-            string sqlQuery = "INSERT INTO CarModel(CMCode, CMName, CMDateCreated, CMStatus) " +
-                              "VALUES(@cmcode,@cmname,GETDATE(),1)";
+            string sqlQuery = "INSERT INTO SalesControl(idSalesControl, SCReceiptCode, idEmployee, SCCustFullName, SCCustAddress, SCCustContactNo, SCDateOfPurchase, " +
+                "SCDateCreated, SCStatus) VALUES(@idSalesControl,@code, @idemployee, @custfullname, @custaddress, @custcontactno, @dateofpurchase, GETDATE(),1)";
 
             using (SqlConnection connection = new SqlConnection(General.connectionString()))
             {
@@ -84,32 +99,36 @@ namespace cardealership.Class
                 try
                 {
                     using (SqlCommand oCommand = new SqlCommand(sqlQuery, connection))
-                    {
-                        oCommand.Parameters.AddWithValue("@cmcode", this.code);
-                        //oCommand.Parameters.AddWithValue("@cmname", this.name);
+                    {                      
+                        oCommand.Parameters.AddWithValue("@code", this.code);
+                        oCommand.Parameters.AddWithValue("@idemployee", this.employee.ID);
+                        oCommand.Parameters.AddWithValue("@custfullname", this.CustFullName);
+                        oCommand.Parameters.AddWithValue("@custaddress", this.CustAddress);
+                        oCommand.Parameters.AddWithValue("@custcontactno", this.CustAddress);
+                        oCommand.Parameters.AddWithValue("@dateofpurchase", this.DateOfPurchase);
                         oCommand.ExecuteNonQuery();
                         return true;
                     }
                 }
                 catch (Exception ex)
                 {
-                    General.showMessageBox("Error", ex.Message, MsgTypes.danger, ex.Source);
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger, System.Reflection.MethodBase.GetCurrentMethod().Name);
                 }
 
             }
             return false;
         }
 
-        public bool delete(clsCar car)
+        public bool delete(clsSales car)
         {
             using (SqlConnection oConnection = new SqlConnection(General.connectionString()))
             {
                 oConnection.Open();
                 try
                 {
-                    using (SqlCommand oCommand = new SqlCommand("DELETE FROM CarModel WHERE idCarModel = @idCarModel", oConnection))
+                    using (SqlCommand oCommand = new SqlCommand("DELETE FROM SalesControl WHERE idSalesControl = @id", oConnection))
                     {
-                        oCommand.Parameters.AddWithValue("@idCarModel", car.ID);
+                        oCommand.Parameters.AddWithValue("@id", car.ID);
 
                         oCommand.ExecuteNonQuery();
                         return true;
@@ -117,8 +136,7 @@ namespace cardealership.Class
                 }
                 catch (Exception ex)
                 {
-
-                    General.showMessageBox("Error", ex.Message, MsgTypes.danger, ex.Source);
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger, System.Reflection.MethodBase.GetCurrentMethod().Name);
                 }
             }
 
@@ -128,6 +146,134 @@ namespace cardealership.Class
 
     class clsSalesData
     {
+        private int id;
+        private clsSales salescontrol;
+        private clsInventory inventory;
+        private DateTime datecreated;
+        private bool status;
+
+        public int ID { get { return this.id; } set { this.id = value; } }
+        public clsSales SalesControl { get { return this.salescontrol; } set { this.salescontrol = value; } }
+        public clsInventory Inventory { get { return this.inventory; } set { this.inventory = value; } }
+        public DateTime DateCreated { get { return this.datecreated; } set { this.datecreated = value; } }
+        public bool Status { get { return this.status; } set { this.status = value; } }
+
+
+        public clsSalesData()
+        {   
+
+        }
+
+        public List<clsSalesData> getSalesData(clsSales salesClass)
+        {
+            List<clsSalesData> list = new List<clsSalesData>();
+            clsSalesData oSalesData;
+            clsInventory oInventory;
+            clsCar oCar;
+            string sQuery = "SELECT idSalesData, ITrackingCode, Inventory.idInventory, CarModel.CMCode, CarModel.idCarMOdel, CarModel.CMName, Inventory.IDetails, Inventory.IDateCreated, Inventory.IIsSoldDate, " +
+                    "Inventory.IStatus FROM Inventory INNER JOIN CarModel ON CarModel.idCarModel = Inventory.idCarModel INNER JOIN SalesData " +
+                    "ON Inventory.idInventory = SalesData.idInventory INNER JOIN SalesControl ON SalesControl.idSalesControl = SalesData.idSalesData " +
+                    "INNER JOIN Employee ON Employee.idEmployee = SalesControl.idEmployee WHERE Inventory.IIsSold = 'True' AND SalesControl.idSalesControl = @salesid";
+            using (SqlConnection oConnection = new SqlConnection(General.connectionString()))
+            {
+                try
+                {
+                    oConnection.Open();
+                    using (SqlCommand oCommand = new SqlCommand(sQuery, oConnection))
+                    {
+                        oCommand.Parameters.AddWithValue("@salesid", salesClass.ID);
+                        using (SqlDataReader oReader = oCommand.ExecuteReader())
+                        {
+                            if (oReader.HasRows)
+                            {
+                                while (oReader.Read())
+                                {
+                                    oSalesData = new clsSalesData();
+                                    oInventory = new clsInventory();
+                                    oCar = new clsCar();
+
+                                    oSalesData.ID = oReader.GetInt32(oReader.GetOrdinal("idSalesData"));
+                                    oCar.ID = oReader.GetInt32(oReader.GetOrdinal("idCarMOdel"));
+                                    oCar.Name = oReader.GetString(oReader.GetOrdinal("CMName"));
+                                    oInventory.Car = oCar;
+                                    oInventory.ID = oReader.GetInt32(oReader.GetOrdinal("idInventory"));
+                                    oInventory.TrackingCode = oReader.GetString(oReader.GetOrdinal("ITrackingCode"));
+                                    oInventory.Details = oReader.GetString(oReader.GetOrdinal("IDetails"));
+                                    oInventory.SoldDate = oReader.GetDateTime(oReader.GetOrdinal("IIsSoldDate"));
+                                    oSalesData.Inventory = oInventory;
+                                    oSalesData.SalesControl = salescontrol;
+                                    oSalesData.DateCreated = oReader.GetDateTime(oReader.GetOrdinal("IDateCreated"));
+                                    oSalesData.Status = oReader.GetBoolean(oReader.GetOrdinal("IStatus"));
+
+                                    list.Add(oSalesData);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                }
+            }
+            return list;
+        }
+
+
+        public bool save()
+        {
+            string sqlQuery = "INSERT INTO SalesControl(idSalesControl, SCReceiptCode, idEmployee, SCCustFullName, SCCustAddress, SCCustContactNo, SCDateOfPurchase, " +
+                "SCDateCreated, SCStatus) VALUES(@idSalesControl,@code, @idemployee, @custfullname, @custaddress, @custcontactno, @dateofpurchase, GETDATE(),1)";
+
+            using (SqlConnection connection = new SqlConnection(General.connectionString()))
+            {
+                connection.Open();
+                try
+                {
+                    using (SqlCommand oCommand = new SqlCommand(sqlQuery, connection))
+                    {
+                        //oCommand.Parameters.AddWithValue("@code", this.code);
+                        //oCommand.Parameters.AddWithValue("@idemployee", this.employee.ID);
+                        //oCommand.Parameters.AddWithValue("@custfullname", this.CustFullName);
+                        //oCommand.Parameters.AddWithValue("@custaddress", this.CustAddress);
+                        //oCommand.Parameters.AddWithValue("@custcontactno", this.CustAddress);
+                        //oCommand.Parameters.AddWithValue("@dateofpurchase", this.DateOfPurchase);
+                        oCommand.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger, ex.Source);
+                }
+
+            }
+            return false;
+        }
+
+        public bool delete(clsSales car)
+        {
+            using (SqlConnection oConnection = new SqlConnection(General.connectionString()))
+            {
+                oConnection.Open();
+                try
+                {
+                    using (SqlCommand oCommand = new SqlCommand("DELETE FROM SalesControl WHERE idSalesControl = @id", oConnection))
+                    {
+                        oCommand.Parameters.AddWithValue("@id", car.ID);
+
+                        oCommand.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    General.showMessageBox("Error", ex.Message, MsgTypes.danger, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                }
+            }
+
+            return false;
+        }
 
     }
 }

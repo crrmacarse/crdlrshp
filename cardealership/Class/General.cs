@@ -66,7 +66,7 @@ namespace cardealership.Class
         {
             if (database == null) { database = "CarDealership"; }
 
-            clsConnection conn = new clsConnection("localhost", "sa", "garudatiger", database);
+            clsConnection conn = new clsConnection("localhost", "sa", "intok", database);
 
             return conn.createConnectionString();
         }
