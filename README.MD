@@ -14,7 +14,7 @@ I've create this application for a college client. If you want to fully explore 
 
 ![Sign in](https://i.imgur.com/curcrJb.png)
 
-The Main UI is not really presentable XD
+The Main UI is not really presentable XD or we could just say that the whole application is not really presentable as this was only a college project(not even thesis) of the client that I tried to overkill.
 
 ---
 
