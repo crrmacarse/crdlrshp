@@ -5,9 +5,9 @@ namespace cardealership.Class
 {
     class clsConnection
     {
-        private string server = "localhost";
+        private string server = "localhost,1433";
         private string username = "sa";
-        private string password = "garudatiger";
+        private string password = "intok";
         private string database = "CarDealership";
 
         public string Server { get { return this.server; } set { this.server = value; } }
@@ -32,8 +32,8 @@ namespace cardealership.Class
 
         public string createConnectionString()
         {
-            return "server=" + this.server + ";uid=" + this.username + ";pwd=" + this.password + ";initial catalog=" + this.database;
-            //return "server=" + this.servername + "," + this.port + ";uid=" + this.username + ";pwd=" + this.password + ";initial catalog=" + this.database;            
+            //return "data source=" + this.server + "; initial catalog = " + this.database + "; persist security info = True; Integrated Security=SSPI;";
+            return "server=" + this.server + ";uid=" + this.username + ";pwd=" + this.password + ";initial catalog=" + this.database;          
         }
 
         public string getConnectionString(string database = null)

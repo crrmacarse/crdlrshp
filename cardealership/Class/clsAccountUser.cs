@@ -15,8 +15,6 @@ namespace cardealership.Class
         private DateTime datecreated;
         private bool status;
 
-        clsConnection conn = new clsConnection();
-
         public int ID { get { return this.id;  } set { this.id = value; } }
         public string Username { get { return this.username; } set { this.username = value; } }
         public string Password { get { return this.password; } set { this.password = value; } }
@@ -29,7 +27,7 @@ namespace cardealership.Class
 
        public clsAccountUser authenticate(string username, string password)
         {
-            using (SqlConnection oConnection = new SqlConnection(conn.getConnectionString()))
+            using (SqlConnection oConnection = new SqlConnection(General.connectionString()))
             {
                 try
                 {
